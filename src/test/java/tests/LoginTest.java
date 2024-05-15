@@ -1,4 +1,7 @@
+package tests;
+
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
@@ -15,4 +18,10 @@ public class LoginTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
     }
 
+    @Test
+    public void test() {
+        loginPageFactory.open();
+        loginPageFactory.login("standard_user", "secret_sauce");
+        Assert.assertEquals(loginPageFactory.gerErrorMessage(), "Epic sadface: Username and password do not match any user in this service");
+    }
 }

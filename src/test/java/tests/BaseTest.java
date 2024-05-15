@@ -1,3 +1,5 @@
+package tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +18,7 @@ public class BaseTest {
     CartPage cartPage;
     CheckoutInformationPage checkoutInformationPage;
     CheckoutOverviewPage checkoutOverviewPage;
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void setup() {
@@ -31,6 +34,7 @@ public class BaseTest {
         cartPage = new CartPage(driver);
         checkoutInformationPage = new CheckoutInformationPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
+        loginPageFactory = new LoginPageFactory(driver);
     }
 
     @AfterMethod(alwaysRun = true)
