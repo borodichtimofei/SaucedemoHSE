@@ -10,12 +10,13 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    WebDriver driver;
-    LoginPage loginPage;
+    public WebDriver driver;
+    public LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
     CheckoutInformationPage checkoutInformationPage;
     CheckoutOverviewPage checkoutOverviewPage;
+
 
     @BeforeMethod
     public void setup() {
