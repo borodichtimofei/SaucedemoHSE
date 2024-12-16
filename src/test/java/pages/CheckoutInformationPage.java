@@ -1,23 +1,27 @@
 package pages;
 
+import dto.Account;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutInformationPage {
+public class CheckoutInformationPage extends BasePage {
 
-    WebDriver driver;
+
     By firstNameField = By.id("first-name");
     By lastNameField = By.id("last-name");
     By postalCodeField = By.id("postal-code");
     By continueButton = By.xpath("//input[@type = 'submit']");
+
     public CheckoutInformationPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
     }
 
-    public CheckoutOverviewPage fillingForm(String firstName, String lastName, String postalCode) {
-        driver.findElement(firstNameField).sendKeys(firstName);
-        driver.findElement(lastNameField).sendKeys(lastName);
-        driver.findElement(postalCodeField).sendKeys(postalCode);
+    public CheckoutOverviewPage fillingForm(Account account) {
+        driver.findElement(firstNameField).sendKeys(account.getFirstName());
+        driver.findElement(lastNameField).sendKeys(account.getLastName());
+        driver.findElement(postalCodeField).sendKeys(account.getPostalCode());
         driver.findElement(continueButton).click();
         return new CheckoutOverviewPage(driver);
     }
